@@ -1,6 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
-import { div } from "three/examples/jsm/nodes/Nodes.js";
+import Sparkles from "./components/Sparkles";
 
 export default function Home() {
   // Client Components:
@@ -8,8 +8,8 @@ export default function Home() {
     loading: () => (
       <>
         <div className="grid place-items-center h-full bg-black">
-          <p className="text-center text-6xl font-bold text-white">
-            Loading...
+          <p className="text-center text-lg md:text-4xl lg:text-6xl font-bold text-white">
+            <Sparkles color="#ffc700">Loading...</Sparkles>
           </p>
         </div>
       </>

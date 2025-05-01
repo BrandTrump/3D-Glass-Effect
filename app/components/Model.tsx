@@ -1,15 +1,20 @@
 import { useGLTF, Text, MeshTransmissionMaterial } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import React, { useRef } from "react";
+import * as THREE from "three";
 
 function Model() {
   const { nodes } = useGLTF("/medias/torrus.glb");
   const { viewport } = useThree();
   const mesh = useRef();
 
+  const clock = new THREE.Clock();
+
   useFrame(() => {
+    const elapsedTime = clock.getElapsedTime();
+
     // @ts-ignore
-    mesh.current.rotation.x += 0.015;
+    mesh.current.rotation.x = elapsedTime * 1.5;
   });
 
   return (
